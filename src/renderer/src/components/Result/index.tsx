@@ -2,56 +2,28 @@
  * @Author: Salaing
  * @Date: 2025-03-01 17:44:02
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-03 17:26:44
+ * @LastEditTime: 2025-03-03 17:44:16
  * @Description: file content
  */
-import useCode from '@renderer/hooks/useCode'
-import { useCallback, useEffect, useState } from 'react'
+import useCodeSelect from '@renderer/hooks/useCodeSelect'
 import classNames from 'classnames'
 import './styles.scss'
 // import { Zero } from './styled'
 
 export default function Index() {
-  const { data } = useCode()
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const handleKeyEvent = useCallback(
-    (e: KeyboardEvent) => {
-      if (data.length === 0) return
-      switch (e.code) {
-        case 'ArrowUp':
-          setCurrentIndex((prev) => (prev - 1 < 0 ? data.length - 1 : prev - 1))
-          break
-        case 'ArrowDown':
-          setCurrentIndex((prev) => (prev + 1 > data.length - 1 ? 0 : prev + 1))
-          break
-        case 'Enter':
-          navigator.clipboard.writeText(data[currentIndex].content)
-          break
-        default:
-          break
-      }
-    },
-    [data, currentIndex]
-  )
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyEvent)
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyEvent)
-    }
-  }, [data, currentIndex])
-
-  useEffect(() => {
-    setCurrentIndex(0)
-  }, [data])
-
+  const { data, id, selectItem } = useCodeSelect()
   return (
     <main className="result">
       {/* css modle css in js  使用modules 会给样式后面加哈希值
        */}
-      {data.map((item, index) => (
-        <div key={item.id} className={classNames({ active: currentIndex === index })}>
+      {data.map((item) => (
+        <div
+          key={item.id}
+          className={classNames({ active: item.id === id })}
+          onClick={() => {
+            selectItem(item.id)
+          }}
+        >
           {item.content}
         </div>
         // <Zero key={item.id} isActive={currentIndex == index}>

@@ -2,24 +2,13 @@
  * @Author: Salaing
  * @Date: 2025-02-28 00:12:30
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-02 18:56:16
+ * @LastEditTime: 2025-03-03 18:30:35
  * @Description: file content
  */
-//
-
-import useCode from '@renderer/hooks/useCode'
-import { useState, ChangeEvent } from 'react'
-import { data as codes } from '@renderer/data'
+import useSearch from '@renderer/hooks/useSearch'
 
 function Search() {
-  const { setData } = useCode()
-  const [search, setSearch] = useState('')
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value)
-    const content = e.target.value.toLocaleLowerCase() || '@@'
-    setData(codes.filter((item) => item.content.toLowerCase().includes(content)))
-  }
-
+  const { search, handleSearch } = useSearch()
   return (
     <div className="bg-slate-50 p-5 rounded-lg  drag">
       <section className="bg-slate-200 p-3 rounded-lg">

@@ -1,8 +1,17 @@
+/*
+ * @Author: Salaing
+ * @Date: 2025-02-27 21:49:11
+ * @LastEditors: Salaing
+ * @LastEditTime: 2025-03-03 21:53:20
+ * @Description: file content
+ */
 import { ElectronAPI } from '@electron-toolkit/preload'
 
 declare global {
   interface Window {
     electron: ElectronAPI
-    api: unknown
+    api: {
+      hideWindow: () => void
+    }
   }
 }
