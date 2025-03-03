@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-01 17:44:02
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-03 17:20:25
+ * @LastEditTime: 2025-03-03 17:26:44
  * @Description: file content
  */
 import useCode from '@renderer/hooks/useCode'
@@ -60,7 +60,7 @@ export default function Index() {
         // static 静态定位 relative 相对定位 相对自己正常位置
         // absolute 绝对定位 脱离正常流 相对于 最近一个相对定位的父元素
         // fixed 固定定位 相对于 浏览器窗口
-        // sticky 粘性定位 相对于 浏览器窗口
+        // sticky 粘性定位 相对于 浏览器窗口 跨越特定阈值之前表现为相对 之后固定
       ))}
     </main>
   )
