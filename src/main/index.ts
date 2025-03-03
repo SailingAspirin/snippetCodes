@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-02-27 21:49:11
  * @LastEditors: Salaing
- * @LastEditTime: 2025-02-28 01:24:57
+ * @LastEditTime: 2025-03-02 18:37:35
  * @Description: file content
  */
 import { app, shell, BrowserWindow, ipcMain, screen } from 'electron'
@@ -15,21 +15,22 @@ function createWindow(): void {
   const { width } = screen.getPrimaryDisplay().workAreaSize
   const mainWindow = new BrowserWindow({
     width: 600,
-    height: 600,
-    // x: width - 600,
-    // y: 50,
+    height: 300,
+    x: width - 600,
+    y: 50,
     show: false,
-    frame: false,
-    transparent: true,
+    // frame: false,
+    // transparent: true,
     alwaysOnTop: true,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
-    }
+      sandbox: false,
+    },
   })
 
+  mainWindow.webContents.openDevTools()
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
