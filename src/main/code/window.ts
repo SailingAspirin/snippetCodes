@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-03 22:16:26
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-03 22:30:44
+ * @LastEditTime: 2025-03-04 22:08:00
  * @Description: file contents
  */
 import { BrowserWindow, shell, screen } from 'electron'
@@ -19,8 +19,8 @@ export function createWindow(): BrowserWindow {
     x: width - 600,
     y: 50,
     show: false,
-    // frame: false,
-    // transparent: true,
+    frame: false,
+    transparent: true,
     alwaysOnTop: true,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
@@ -30,7 +30,7 @@ export function createWindow(): BrowserWindow {
     },
   })
 
-  mainWindow.webContents.openDevTools()
+  //   mainWindow.webContents.openDevTools()
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })

@@ -1,10 +1,13 @@
 import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 
-// Custom APIs for renderer
+// Custom APIs for renderer 转发到客户端
 const api = {
   hideWindow: () => {
     ipcRenderer.send('hideWindow')
+  },
+  shortCut: (type: string, shortCut: string) => {
+    return ipcRenderer.invoke('shortCut', type, shortCut)
   },
 }
 

@@ -4,6 +4,9 @@ body {
 .drag {
   -webkit-app-region: drag;
 }
+* {
+  opacity: 0.98;
+}
 .no-drag,
 input,
 textarea,

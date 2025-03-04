@@ -1,4 +1,4 @@
-import { BrowserWindow, ipcMain, IpcMainEvent } from 'electron'
+import { BrowserWindow, ipcMain } from 'electron'
 
 export const registerIpc = (win: BrowserWindow) => {
   //   ipcMain.on('showWindow', () => {

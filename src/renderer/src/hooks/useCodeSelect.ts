@@ -1,13 +1,18 @@
 import { useCallback, useEffect, useState } from 'react'
 import useCode from './useCode'
+import { useStore } from '@renderer/store/useStore'
 
 export default () => {
-  const { data } = useCode()
+  //useStore((state) => state)写法会导致 其他的 state 改变时，useStore也会重新执行，重新渲染
+  // const { data, setData } = useStore((state) => state)
+
+  const data = useStore((state) => state.data)
+  const setData = useStore((state) => state.setData)
+  const setSearch = useStore((state) => state.setSearch)
   const [id, setId] = useState(0)
   const handleKeyEvent = useCallback(
     (e: KeyboardEvent) => {
       if (data.length === 0) return
-      let content: string | undefined = '' // 修改类型声明
       switch (e.code) {
         case 'ArrowUp':
           setId((id) => {
@@ -22,11 +27,7 @@ export default () => {
           })
           break
         case 'Enter':
-          content = data.find((item) => item.id === id)?.content
-          if (content) {
-            navigator.clipboard.writeText(content)
-            window.api.hideWindow()
-          }
+          selectItem(id)
           break
         default:
           break
@@ -36,7 +37,13 @@ export default () => {
   )
 
   const selectItem = (id: number) => {
-    setId(id)
+    const content = data.find((item) => item.id === id)?.content
+    if (content) {
+      navigator.clipboard.writeText(content)
+      setData([])
+      setSearch('')
+      window.api.hideWindow()
+    }
   }
 
   useEffect(() => {

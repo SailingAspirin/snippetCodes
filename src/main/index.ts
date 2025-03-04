@@ -2,10 +2,10 @@
  * @Author: Salaing
  * @Date: 2025-02-27 21:49:11
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-03 22:34:40
+ * @LastEditTime: 2025-03-04 14:25:25
  * @Description: file content
  */
-import { app, shell, BrowserWindow, ipcMain, screen } from 'electron'
+import { app, BrowserWindow, ipcMain, screen } from 'electron'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import './code'
 

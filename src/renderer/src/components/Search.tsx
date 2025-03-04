@@ -2,13 +2,14 @@
  * @Author: Salaing
  * @Date: 2025-02-28 00:12:30
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-03 18:30:35
+ * @LastEditTime: 2025-03-04 11:32:40
  * @Description: file content
  */
 import useSearch from '@renderer/hooks/useSearch'
 
 function Search() {
   const { search, handleSearch } = useSearch()
+
   return (
     <div className="bg-slate-50 p-5 rounded-lg  drag">
       <section className="bg-slate-200 p-3 rounded-lg">
