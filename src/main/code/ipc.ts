@@ -1,11 +1,13 @@
 import { BrowserWindow, ipcMain } from 'electron'
+import { createConfigWindow } from '../config'
 
 export const registerIpc = (win: BrowserWindow) => {
-  //   ipcMain.on('showWindow', () => {
-  //     // const win = BrowserWindow.fromWebContents(event.sender)
-  //     win?.show()
-  //   })
   ipcMain.on('hideWindow', () => {
     win?.hide()
+  })
+
+  ipcMain.on('openConfigWindow', () => {
+    // const win = BrowserWindow.fromWebContents(event.sender)
+    createConfigWindow()
   })
 }

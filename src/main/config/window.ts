@@ -5,7 +5,7 @@
  * @LastEditTime: 2025-03-04 23:10:16
  * @Description: file contents
  */
-import { BrowserWindow, shell, screen } from 'electron'
+import { BrowserWindow, shell } from 'electron'
 import { join } from 'path'
 import icon from '../../../resources/icon.png?asset'
 import { is } from '@electron-toolkit/utils'
@@ -13,14 +13,10 @@ import { is } from '@electron-toolkit/utils'
 export function createWindow(): BrowserWindow {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 500,
-    height: 300,
-    x: 500,
-    y: 200,
+    width: 800,
+    height: 500,
     show: false,
-    frame: false,
     alwaysOnTop: true,
-    transparent: true,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {

@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-02-27 21:49:11
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-04 14:25:25
+ * @LastEditTime: 2025-03-04 23:21:13
  * @Description: file content
  */
 import { app, BrowserWindow, ipcMain, screen } from 'electron'
