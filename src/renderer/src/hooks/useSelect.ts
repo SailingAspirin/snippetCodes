@@ -9,23 +9,23 @@ export default () => {
   const data = useStore((state) => state.data)
   const setData = useStore((state) => state.setData)
   const setSearch = useStore((state) => state.setSearch)
-  const [id, setId] = useState(0)
+  const id = useStore((state) => state.id)
+  const setId = useStore((state) => state.setId)
+  // const [id, setId] = useState(0)
   const handleKeyEvent = useCallback(
     (e: KeyboardEvent) => {
       if (data.length === 0) return
       switch (e.code) {
-        case 'ArrowUp':
-          setId((id) => {
-            const index = data.findIndex((item) => item.id === id)
-            return data[index - 1]?.id || data[data.length - 1].id
-          })
+        case 'ArrowUp': {
+          const index = data.findIndex((item) => item.id === id)
+          setId(data[index - 1]?.id || data[data.length - 1].id)
           break
-        case 'ArrowDown':
-          setId((id) => {
-            const index = data.findIndex((item) => item.id === id)
-            return data[index + 1]?.id || data[0].id
-          })
+        }
+        case 'ArrowDown': {
+          const index = data.findIndex((item) => item.id === id)
+          setId(data[index + 1]?.id || data[0].id)
           break
+        }
         case 'Enter':
           selectItem(id)
           break

@@ -2,10 +2,10 @@
  * @Author: Salaing
  * @Date: 2025-03-01 17:44:02
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-03 17:44:16
+ * @LastEditTime: 2025-03-05 23:02:33
  * @Description: file content
  */
-import useCodeSelect from '@renderer/hooks/useCodeSelect'
+import useCodeSelect from '@renderer/hooks/useSelect'
 import classNames from 'classnames'
 import './styles.scss'
 // import { Zero } from './styled'
