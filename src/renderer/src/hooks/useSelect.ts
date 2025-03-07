@@ -11,7 +11,6 @@ export default () => {
   const setSearch = useStore((state) => state.setSearch)
   const id = useStore((state) => state.id)
   const setId = useStore((state) => state.setId)
-  // const [id, setId] = useState(0)
   const handleKeyEvent = useCallback(
     (e: KeyboardEvent) => {
       if (data.length === 0) return

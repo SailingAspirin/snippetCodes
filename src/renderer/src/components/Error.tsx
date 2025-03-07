@@ -10,6 +10,8 @@ const Error = () => {
     const cancel = setTimeout(() => {
       setError('')
     }, 2000)
+    clearTimeout(cancel)
+
     return () => {
       clearTimeout(cancel)
     }

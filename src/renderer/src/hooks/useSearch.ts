@@ -1,3 +1,17 @@
+/*
+ * @Author: Salaing
+ * @Date: 2025-03-03 18:21:07
+ * @LastEditors: Salaing
+ * @LastEditTime: 2025-03-07 16:11:35
+ * @Description: file content
+ */
+/*
+ * @Author: Salaing
+ * @Date: 2025-03-03 18:21:07
+ * @LastEditors: Salaing
+ * @LastEditTime: 2025-03-07 14:37:24
+ * @Description: file content
+ */
 import { ChangeEvent, useEffect, useState } from 'react'
 import useCode from './useCode'
 import { data as codes } from '@renderer/data'
@@ -12,7 +26,12 @@ export default function useSearch() {
   const setId = useStore((state) => state.setId)
 
   useEffect(() => {
-    setId(data[0].id || 0)
+    if (data && Array.isArray(data) && data.length > 0) {
+      setId(data[0].id || 0)
+    } else {
+      // 处理 data 为空或无效的情况
+      setId(0) // 或者设置一个默认值
+    }
   }, [data])
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
