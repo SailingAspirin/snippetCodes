@@ -1,11 +1,12 @@
 body {
-  @apply bg-yellow-400 w-screen h-screen;
+  // @apply bg-yellow-400 w-screen h-screen;
+  @apply h-screen w-screen;
 }
 .drag {
   -webkit-app-region: drag;
 }
 * {
-  opacity: 0.98;
+  opacity: 0.99;
 }
 .nodrag,
 input,

@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-03 22:16:26
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-07 17:04:23
+ * @LastEditTime: 2025-03-09 19:58:10
  * @Description: file contents
  */
 import { BrowserWindow, shell, screen } from 'electron'
@@ -62,5 +62,6 @@ export function createWindow(): BrowserWindow {
   } else {
     win.loadFile(join(__dirname, '../renderer/index.html'))
   }
+
   return win
 }

@@ -1,3 +1,10 @@
+/*
+ * @Author: Salaing
+ * @Date: 2025-03-04 18:55:17
+ * @LastEditors: Salaing
+ * @LastEditTime: 2025-03-09 20:01:39
+ * @Description: file content
+ */
 import { useStore } from '@renderer/store/useStore'
 import { useEffect } from 'react'
 import { Alert } from 'antd'
@@ -10,7 +17,6 @@ const Error = () => {
     const cancel = setTimeout(() => {
       setError('')
     }, 2000)
-    clearTimeout(cancel)
 
     return () => {
       clearTimeout(cancel)

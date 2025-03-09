@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-02-28 00:12:30
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-07 17:03:47
+ * @LastEditTime: 2025-03-09 18:54:07
  * @Description: 注意设置了拖动之后的区域是不能响应鼠标事件的
  */
 import { SettingOne } from '@icon-park/react'
@@ -12,8 +12,8 @@ function Search() {
   const { search, handleSearch } = useSearch()
 
   return (
-    <div className="bg-slate-50 p-5 rounded-lg drag">
-      <section className="bg-slate-200 p-3 rounded-lg flex items-center gap-1 nodrag">
+    <div className="bg-slate-50 p-5 rounded-lg pb-2 drag">
+      <section className="bg-slate-200 p-3  rounded-lg flex items-center gap-1 nodrag">
         <SettingOne
           theme="outline"
           size="16"

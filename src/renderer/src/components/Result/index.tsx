@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-01 17:44:02
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-05 23:02:33
+ * @LastEditTime: 2025-03-09 18:51:58
  * @Description: file content
  */
 import useCodeSelect from '@renderer/hooks/useSelect'
@@ -13,7 +13,8 @@ import './styles.scss'
 export default function Index() {
   const { data, id, selectItem } = useCodeSelect()
   return (
-    <main className="result">
+    // <main className={classNames(data?.length > 0 ? 'result' : '')}>
+    <main className={'result'}>
       {/* css modle css in js  使用modules 会给样式后面加哈希值
        */}
       {data.map((item) => (
