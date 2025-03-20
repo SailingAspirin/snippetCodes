@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-04 18:55:17
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-09 20:01:39
+ * @LastEditTime: 2025-03-20 17:02:44
  * @Description: file content
  */
 import { useStore } from '@renderer/store/useStore'
@@ -25,9 +25,8 @@ const Error = () => {
 
   if (!error) {
     return null
-  } else {
-    return <Alert message={error} type="info" showIcon />
   }
+  return <Alert message={error} type="info" showIcon />
 }
 
 export default Error

@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-03 22:16:26
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-09 19:58:10
+ * @LastEditTime: 2025-03-20 20:15:08
  * @Description: file contents
  */
 import { BrowserWindow, shell, screen } from 'electron'
@@ -12,11 +12,12 @@ import { is } from '@electron-toolkit/utils'
 
 export function createWindow(): BrowserWindow {
   // Create the browser window.
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    // x: 500,
-    // y: 200,
+    width: 200,
+    height: 400,
+    x: width - 500,
+    y: 0,
     center: true,
     show: false,
     frame: false,
