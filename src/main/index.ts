@@ -8,7 +8,6 @@
 import { app, BrowserWindow, ipcMain, screen } from 'electron'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import './code'
-import './db'
 
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
