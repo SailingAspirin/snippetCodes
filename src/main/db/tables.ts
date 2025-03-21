@@ -24,9 +24,9 @@ db.exec(`
             updated_at text not null
         );
     `)
-db.exec(`
-        INSERT INTO categories (name, created_at) VALUES ('默认分类', datetime('now', 'localtime'))
-    `)
-db.exec(`
-        INSERT INTO contents (title, content, category_id, created_at, updated_at) VALUES ('默认内容', '默认内容', 1, datetime('now','localtime'), datetime('now', 'localtime'))
-    `)
+// db.exec(`
+//         INSERT INTO categories (name, created_at) VALUES ('默认分类', datetime('now', 'localtime'))
+//     `)
+// db.exec(`
+//         INSERT INTO contents (title, content, category_id, created_at, updated_at) VALUES ('默认内容', '默认内容', 1, datetime('now','localtime'), datetime('now', 'localtime'))
+//     `)

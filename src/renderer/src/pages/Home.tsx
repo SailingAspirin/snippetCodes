@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-05 11:18:54
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-09 19:59:45
+ * @LastEditTime: 2025-03-21 12:41:26
  * @Description: file content
  */
 import React, { MutableRefObject, useRef } from 'react'
@@ -30,8 +30,7 @@ function Home(): JSX.Element {
   const { setIgnoreMouseEvents } = useIgnoreMouseEvents()
 
   useEffect(() => {
-    register('search', 'CommandOrControl+Shift+[')
-
+    // register('search', 'CommandOrControl+Shift+[')
     setIgnoreMouseEvents(mainRef as MutableRefObject<HTMLElement>)
   }, [])
   return (

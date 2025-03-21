@@ -15,9 +15,7 @@ export default () => {
     })
 
     document.body?.addEventListener('mouseover', (e: MouseEvent) => {
-      console.log('🛸u....ts:19/(e):', e.target)
       if (e.target === document.body) {
-        console.log('🛸u....ts:20/():', e.target)
         window.api?.setIgnoreMouseEvents(true, { forward: true })
       }
     })
