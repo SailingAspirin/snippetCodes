@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-05 11:18:54
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-21 15:16:50
+ * @LastEditTime: 2025-03-21 12:41:26
  * @Description: file content
  */
 import React, { MutableRefObject, useRef } from 'react'
@@ -23,8 +23,7 @@ import isPropValid from '@emotion/is-prop-valid'
 import useShortCut from '@renderer/hooks/useShortCut'
 import Error from '@renderer/components/Error'
 import useIgnoreMouseEvents from '@renderer/hooks/useIgnoreMouseEvents'
-
-const Index = () => {
+function Home(): JSX.Element {
   // const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
   const { register } = useShortCut()
   const mainRef = useRef<HTMLDivElement | null>(null)
@@ -33,7 +32,6 @@ const Index = () => {
   useEffect(() => {
     // register('search', 'CommandOrControl+Shift+[')
     setIgnoreMouseEvents(mainRef as MutableRefObject<HTMLElement>)
-    window.api.openConfigWindow()
   }, [])
   return (
     <>
@@ -54,4 +52,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default Home

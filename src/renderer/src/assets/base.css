@@ -27,15 +27,10 @@
   --color-background: var(--ev-c-black);
   --color-background-soft: var(--ev-c-black-soft);
   --color-background-mute: var(--ev-c-black-mute);
+
   --color-text: var(--ev-c-text-1);
 }
-html,
-body {
-  margin: 0;
-  /* 禁止 html,body 滚动，避免滚动条出现在标题栏右边 */
-  overflow: hidden;
-  height: 100%;
-}
+
 *,
 *::before,
 *::after {
@@ -47,3 +42,4 @@ body {
 ul {
   list-style: none;
 }
+

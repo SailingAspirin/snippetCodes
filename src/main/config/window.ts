@@ -2,34 +2,23 @@
  * @Author: Salaing
  * @Date: 2025-03-03 22:16:26
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-21 16:49:55
+ * @LastEditTime: 2025-03-05 22:54:08
  * @Description: file contents
  */
-import { BrowserWindow, shell, screen } from 'electron'
+import { BrowserWindow, shell } from 'electron'
 import { join } from 'path'
 import url from 'node:url' // 引入url模块
 import icon from '../../../resources/icon.png?asset'
 import { is } from '@electron-toolkit/utils'
 
 export function createWindow(): BrowserWindow {
-  const { width: winWidth } = screen.getPrimaryDisplay().workAreaSize
-  const width = 350
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width,
+    width: 800,
     height: 500,
-    x: winWidth - width,
-    y: 0,
     show: false,
     alwaysOnTop: true,
     autoHideMenuBar: true,
-    title: 'Config',
-    // titleBarStyle: 'hidden',
-    // titleBarOverlay: {
-    //   color: 'rgba(0,0,0,0)',
-    //   height: 35,
-    //   symbolColor: 'white',
-    // },
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),

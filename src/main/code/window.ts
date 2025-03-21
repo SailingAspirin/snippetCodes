@@ -18,7 +18,7 @@ export function createWindow(): BrowserWindow {
     height: 400,
     x: width - 500,
     y: 0,
-    // center: true,
+    center: true,
     show: false,
     frame: false,
     alwaysOnTop: true,
