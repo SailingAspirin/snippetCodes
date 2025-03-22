@@ -2,10 +2,11 @@
  * @Author: Salaing
  * @Date: 2025-03-20 19:43:44
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-20 23:54:11
+ * @LastEditTime: 2025-03-22 22:28:59
  * @Description: file content
  */
 import { db } from './connect'
+import { Random } from 'mockjs'
 
 db.exec(`
         create table if not exists categories (
@@ -24,9 +25,17 @@ db.exec(`
             updated_at text not null
         );
     `)
-// db.exec(`
-//         INSERT INTO categories (name, created_at) VALUES ('默认分类', datetime('now', 'localtime'))
-//     `)
-// db.exec(`
-//         INSERT INTO contents (title, content, category_id, created_at, updated_at) VALUES ('默认内容', '默认内容', 1, datetime('now','localtime'), datetime('now', 'localtime'))
-//     `)
+
+for (let i = 0; i < 10; i++) {
+  const name = Random.ctitle(5, 10)
+  db.exec(`
+        INSERT INTO categories (name, created_at) VALUES ('${name}', datetime('now', 'localtime'))
+    `)
+  for (let j = 1; j < 10; j++) {
+    const title = Random.ctitle(5, 10)
+    const content = Random.cparagraph(1, 10)
+    db.exec(`
+                INSERT INTO contents (title, content, category_id, created_at, updated_at) VALUES ('${title}', '${content}', ${j}, datetime('now','localtime'), datetime('now', 'localtime'))
+            `)
+  }
+}
