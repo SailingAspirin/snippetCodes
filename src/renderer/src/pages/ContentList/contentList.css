@@ -1,4 +1,4 @@
-.content-page {
+.contentList-page {
   @apply h-screen text-xs text-slate-700;
   display: grid;
   grid-template: 'list content' auto / 150px auto;
@@ -6,10 +6,13 @@
     @apply bg-slate-50 border-r overflow-y-auto;
     grid-area: list;
     a {
-      @apply px-1 py-1 truncate cursor-pointer block  hover:bg-slate-700 hover:text-white;
+      @apply px-1 py-1 truncate cursor-pointer block gap-1  hover:bg-slate-700 hover:text-white;
+    }
+    a.active {
+      @apply bg-blue-700 text-white mx-1 rounded-md text-ellipsis text-nowrap;
     }
   }
-  .content {
+  .contentList {
     grid-area: content;
   }
 }

@@ -2,16 +2,18 @@
  * @Author: Salaing
  * @Date: 2025-03-05 11:20:25
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-22 16:36:28
+ * @LastEditTime: 2025-03-23 11:08:52
  * @Description: file content
  */
 import { createHashRouter } from 'react-router-dom'
 import Home from '@renderer/pages/Home/index'
 import Config from '@renderer/pages/Config/index'
 import Category from '@renderer/pages/Category/index'
-import Content from '@renderer/pages/Content/index'
 import CategoryLoader from '@renderer/pages/Category/CategoryLoader'
-import ContentListLoader from '@renderer/pages/Content/ContentListLoader'
+import ContentList from '@renderer/pages/ContentList'
+import ContentListLoader from '@renderer/pages/ContentList/ContentListLoader'
+import Content from '@renderer/pages/Content'
+import ContentLoader from '@renderer/pages/Content/ContentLoader'
 
 const routes = [
   {
@@ -30,7 +32,14 @@ const routes = [
           {
             path: 'contentList/:cid',
             loader: ContentListLoader,
-            element: <Content />,
+            element: <ContentList />,
+            children: [
+              {
+                path: 'content/:id',
+                loader: ContentLoader,
+                element: <Content />,
+              },
+            ],
           },
         ],
       },
