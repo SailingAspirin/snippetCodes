@@ -3,12 +3,13 @@
   display: grid;
   grid-template:
     'category content'
-    'nav content' 30px/120px 1fr;
+    'nav content' 30px/150px 1fr;
   .categories {
     grid-area: category;
-    @apply border-t border-r bg-slate-100;
+    @apply border-t border-r bg-slate-100 overflow-y-auto;
+
     a {
-      @apply p-1 py-1 truncate cursor-pointer block mx-1 rounded-md  text-ellipsis text-nowrap hover:bg-slate-700 hover:text-white;
+      @apply p-1 py-1 truncate cursor-pointer block mx-1 rounded-md;
       position: relative;
 
       &.active {

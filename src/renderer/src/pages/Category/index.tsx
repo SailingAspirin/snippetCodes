@@ -1,7 +1,14 @@
+/*
+ * @Author: Salaing
+ * @Date: 2025-03-21 18:37:27
+ * @LastEditors: Salaing
+ * @LastEditTime: 2025-03-24 11:17:20
+ * @Description: file content
+ */
 import React, { useEffect } from 'react'
 import './category.scss'
 import { NavLink, Outlet, useLoaderData, useNavigate } from 'react-router-dom'
-import { Add, DatabaseSetting } from '@icon-park/react'
+import { Add, DatabaseSetting, FolderClose } from '@icon-park/react'
 
 const Index = () => {
   const categories = useLoaderData() as CategoryType[]
@@ -25,7 +32,10 @@ const Index = () => {
               className={({ isActive }) => (isActive ? 'active' : '')}
               title={item.name}
             >
-              {item.name}
+              <div className="flex items-center gap-2">
+                <FolderClose theme="outline" size="12" fill="#333" strokeWidth={3} />
+                <div className={'truncate'}>{item.name}</div>
+              </div>
             </NavLink>
           )
         })}
