@@ -1,0 +1,19 @@
+.contentList-page {
+  @apply h-screen text-xs text-slate-700;
+  display: grid;
+  grid-template: 'list content' auto / 250px auto;
+  .list {
+    @apply bg-slate-50 border-r overflow-y-auto;
+    grid-area: list;
+    a {
+      @apply px-1 py-1 truncate cursor-pointer gap-1 rounded-md 
+        flex items-center  border-b mx-2;
+    }
+    a.active {
+      @apply bg-blue-700 text-white mx-1 rounded-md text-ellipsis text-nowrap;
+    }
+  }
+  .contentList {
+    grid-area: content;
+  }
+}
