@@ -1,6 +1,12 @@
 .content-page {
-  @apply h-screen w-screen bg-white;
-  h1 {
-    @apply text-slate-950;
+  @apply h-screen;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+
+  input {
+    @apply text-lg outline-none bg-slate-50 p-3 h-full;
+  }
+  textarea {
+    @apply border-t pt-5 outline-none text-sm opacity-90 bg-slate-50 p-3 h-full;
   }
 }

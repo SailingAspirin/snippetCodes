@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-02-28 00:12:30
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-21 12:46:54
+ * @LastEditTime: 2025-03-24 22:40:12
  * @Description: 注意设置了拖动之后的区域是不能响应鼠标事件的
  */
 import { SettingOne } from '@icon-park/react'
@@ -30,16 +30,6 @@ function Search() {
           value={search}
           onChange={handleSearch}
         />
-        <button
-          className="bg-yellow-400"
-          onClick={() => {
-            window.api.sql(`select * from contents `, 'findAll').then((res) => {
-              console.log(res)
-            })
-          }}
-        >
-          拆线呢
-        </button>
       </section>
       <section className="text-center select-none text-slate-600 text-xs mt-2 hover:cursor-pointer nodrag ">
         片段库/剪切板

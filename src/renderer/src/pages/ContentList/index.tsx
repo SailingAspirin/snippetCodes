@@ -14,14 +14,15 @@ const Index = () => {
   const content = useLoaderData() as ContentType[]
   const navigate = useNavigate()
   const listRef = useRef<HTMLDivElement | null>(null)
-  useEffect(() => {
-    if (listRef.current) {
-      listRef.current.scrollTop = 0
-    }
-    if (content.length > 0) {
-      navigate(`/config/category/contentList/${content[0].category_id}/content/${content[0].id}`)
-    }
-  }, [content, navigate])
+
+  // useEffect(() => {
+  //   if (listRef.current) {
+  //     listRef.current.scrollTop = 0
+  //   }
+  //   if (content.length > 0) {
+  //     navigate(`/config/category/contentList/${content[0].category_id}/content/${content[0].id}`)
+  //   }
+  // }, [content, navigate])
 
   return (
     <main className="contentList-page">
