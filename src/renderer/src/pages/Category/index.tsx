@@ -2,13 +2,14 @@
  * @Author: Salaing
  * @Date: 2025-03-21 18:37:27
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-24 21:13:19
+ * @LastEditTime: 2025-03-26 00:13:00
  * @Description: file content
  */
 import React, { useEffect } from 'react'
 import './category.scss'
 import { NavLink, Outlet, useLoaderData, useNavigate } from 'react-router-dom'
 import { Add, AllApplication, DatabaseSetting, FolderClose } from '@icon-park/react'
+import classNames from 'classnames'
 
 const Index = () => {
   const categories = useLoaderData() as CategoryType[]
@@ -30,12 +31,20 @@ const Index = () => {
             <div className="truncate ">所有片段</div>
           </div>
         </NavLink>
+        <NavLink
+          to={'/config/category/contentList/0'}
+          className={({ isActive }) => classNames('font-bold', { active: isActive })}
+        >
+          <div className="flex items-center gap-1">
+            <AllApplication theme="outline" size="12" fill="#333" strokeWidth={3} />
+            <div className="truncate ">未分类</div>
+          </div>
+        </NavLink>
         {categories.map((item) => {
           return (
             <NavLink
               to={`/config/category/contentList/${item.id}`}
               key={item.id}
-              // className={classNames({ active: item?.id === current?.id })}
               className={({ isActive }) => (isActive ? 'active' : '')}
               title={item.name}
             >

@@ -1,12 +1,46 @@
+@mixin common {
+  @apply outline-none  !important;
+}
+
 .content-page {
   @apply h-screen;
   display: grid;
-  grid-template-rows: 50px 1fr;
-
+  grid-template-rows: 50px 30px 1fr;
+  & div {
+    @apply h-full;
+  }
+  .ant-form-item {
+    @apply h-full;
+  }
+  .ant-form-item-control-input {
+    @apply h-full;
+  }
   input {
-    @apply text-lg outline-none bg-slate-50 p-3 h-full;
+    @include common();
+    @apply text-lg  p-3 h-full;
+  }
+  .ant-select-selector {
+    @include common();
+    @apply w-full mt-[2px];
   }
   textarea {
-    @apply border-t pt-5 outline-none text-sm opacity-90 bg-slate-50 p-3 h-full;
+    @include common();
+    @apply border-t mt-2 pt-3 text-sm opacity-90 p-3 h-full;
+  }
+  //  去除 antd 组件的 outline 样式 .ant-input:focus,
+  .ant-input,
+  .ant-input-affix-wrapper,
+  .ant-input-textarea {
+    @apply border-none focus:ring-0 focus:border-none;
+  }
+
+  /* 覆盖 Select */
+  .ant-select-selector {
+    @apply border-none focus:ring-0 focus:border-none  !important;
+  }
+  .ant-select-focused .ant-select-selector,
+  .ant-select-selector:focus {
+    box-shadow: none !important;
+    border-color: transparent !important;
   }
 }

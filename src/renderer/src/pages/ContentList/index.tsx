@@ -2,18 +2,27 @@
  * @Author: Salaing
  * @Date: 2025-03-21 18:37:27
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-24 10:12:35
+ * @LastEditTime: 2025-03-25 22:34:58
  * @Description: file content
  */
 import { useEffect, useRef } from 'react'
 import './contentList.css'
-import { NavLink, Outlet, useLoaderData, useNavigate } from 'react-router-dom'
+import {
+  NavLink,
+  Outlet,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+  useSubmit,
+  Form,
+} from 'react-router-dom'
 import dayjs from 'dayjs'
+import { Button, Input } from 'antd'
+import { Add } from '@icon-park/react'
 
 const Index = () => {
   const content = useLoaderData() as ContentType[]
-  const navigate = useNavigate()
-  const listRef = useRef<HTMLDivElement | null>(null)
+  const submit = useSubmit()
 
   // useEffect(() => {
   //   if (listRef.current) {
@@ -24,13 +33,40 @@ const Index = () => {
   //   }
   // }, [content, navigate])
 
+  // const handleSearch = (values: { searchWord: string }) => {
+  //   submit(values, { method: 'post' })
+  // }
+
   return (
     <main className="contentList-page">
-      <div className="list" ref={listRef}>
+      <div className="list">
+        <Form>
+          <div className="border-b flex justify-between items-center">
+            <input
+              name="searchWord"
+              type="text"
+              placeholder="搜索..."
+              className="outline-none text-sm py-2 px-3 w-full"
+            />
+            {/* <Button size="small" type="default" htmlType="submit">
+              搜索
+            </Button> */}
+            <Add
+              theme="outline"
+              size="18"
+              fill="#000"
+              strokeWidth={2}
+              onClick={() => {
+                submit({ action: 'add' }, { method: 'post' })
+              }}
+            />
+          </div>
+        </Form>
+
         {content.map((item) => (
           <NavLink
             to={`/config/category/contentList/${item.category_id}/content/${item.id}`}
-            className={({ isActive }) => (isActive ? 'active' : '')}
+            className="flex items-center justify-between"
             key={item.id}
           >
             <div className="truncate">{item.title}</div>

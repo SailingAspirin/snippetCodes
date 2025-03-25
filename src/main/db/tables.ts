@@ -39,7 +39,8 @@ function initData() {
       const title = Random.ctitle(5, 10)
       const content = Random.cparagraph(1, 10)
       db.exec(`
-                      INSERT INTO contents (title, content, category_id, created_at, updated_at) VALUES ('${title}', '${content}', ${j}, datetime('now','localtime'), datetime('now', 'localtime'))
+                      INSERT INTO contents (title, content, category_id, created_at, updated_at)
+                       VALUES ('${title}', '${content}', ${j}, datetime('now','localtime'), datetime('now', 'localtime'))
                   `)
     }
   }

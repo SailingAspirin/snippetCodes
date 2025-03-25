@@ -2,13 +2,13 @@
  * @Author: Salaing
  * @Date: 2025-03-21 10:30:28
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-24 16:20:54
+ * @LastEditTime: 2025-03-25 20:19:22
  * @Description: file content
  */
 import { db } from './connect'
 
-export const findAll = (sql: string) => {
-  return db.prepare(sql).all()
+export const findAll = (sql: string, params = {}) => {
+  return db.prepare(sql).all(params)
 }
 
 export const findOne = (sql: string) => {
