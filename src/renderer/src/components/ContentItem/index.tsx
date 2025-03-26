@@ -2,6 +2,8 @@ import { Delete } from '@icon-park/react'
 import dayjs from 'dayjs'
 import { NavLink, useSubmit } from 'react-router-dom'
 import { useContextMenu } from 'mantine-contextmenu'
+import style from './style.module.scss'
+
 interface props {
   item: {
     id: number
@@ -16,7 +18,7 @@ function ContentItem({ item }: props) {
   return (
     <NavLink
       to={`/config/category/contentList/${item.category_id}/content/${item.id}`}
-      className="flex items-center justify-between"
+      className={({ isActive }) => (isActive ? style.active : style.link)}
       key={item.id}
       onContextMenu={showContextMenu([
         {

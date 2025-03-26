@@ -25,7 +25,7 @@ const Index = () => {
 
   return (
     <main className="category-page">
-      <div className="categories">
+      <div className="categories ">
         <QuickNav />
         {categories.map((item) => {
           return <CategoryItem key={item.id} category={item} />

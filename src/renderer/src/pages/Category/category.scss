@@ -7,34 +7,6 @@
   .categories {
     grid-area: category;
     @apply border-t border-r bg-slate-100 overflow-y-auto;
-
-    a {
-      @apply p-1 py-1 truncate cursor-pointer block mx-1 rounded-md;
-      position: relative;
-
-      &.active {
-        @apply bg-blue-700 text-white mx-1 rounded-md;
-      }
-      &:hover .tooltip-text {
-        visibility: visible;
-      }
-      .tooltip-text {
-        visibility: hidden;
-        width: 120px;
-        background-color: #555;
-        color: #fff;
-        text-align: center;
-        border-radius: 5px;
-        padding: 5px 0;
-        position: absolute;
-        z-index: 1;
-        bottom: 125%; /* Position the tooltip above the text */
-        left: 50%;
-        margin-left: -60px;
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-    }
   }
   .nav {
     @apply border-t border-r bg-slate-100 flex justify-center items-center
