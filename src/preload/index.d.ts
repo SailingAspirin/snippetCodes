@@ -16,7 +16,11 @@ declare global {
       shortCut: (type: 'search', shortCut: string) => Promise<boolean>
       setIgnoreMouseEvents: (ignore: boolean, options?: { forward: boolean }) => void
       openConfigWindow: () => void
-      sql: <T>(sql: string, type: 'findAll' | 'findOne' | 'insert' | 'update' | 'del') => Promise<T>
+      sql: <T>(
+        sql: string,
+        type: 'findAll' | 'findOne' | 'insert' | 'update' | 'del',
+        params?: Record<string, any>
+      ) => Promise<T>
     }
   }
 }

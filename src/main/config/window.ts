@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-03 22:16:26
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-22 15:22:42
+ * @LastEditTime: 2025-03-24 21:26:07
  * @Description: file contents
  */
 import { BrowserWindow, shell, screen } from 'electron'
@@ -37,9 +37,11 @@ export function createWindow(): BrowserWindow {
     },
   })
 
-  //   mainWindow.webContents.openDevTools()
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
+    if (is.dev) {
+      mainWindow.webContents.openDevTools({ mode: 'undocked' })
+    }
   })
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
@@ -50,7 +52,7 @@ export function createWindow(): BrowserWindow {
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
-    mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'] + '/#config/category')
+    mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'] + '/#config/category/contentList')
   } else {
     // mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
     mainWindow.loadURL(
@@ -60,7 +62,7 @@ export function createWindow(): BrowserWindow {
         // 协议
         protocol: 'file',
         slashes: true,
-        hash: 'config/category',
+        hash: 'config/category/contentList',
       })
     )
   }

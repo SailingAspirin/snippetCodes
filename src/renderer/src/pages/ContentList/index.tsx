@@ -2,39 +2,25 @@
  * @Author: Salaing
  * @Date: 2025-03-21 18:37:27
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-24 10:12:35
+ * @LastEditTime: 2025-03-26 14:30:49
  * @Description: file content
  */
 import { useEffect, useRef } from 'react'
 import './contentList.css'
-import { NavLink, Outlet, useLoaderData, useNavigate } from 'react-router-dom'
-import dayjs from 'dayjs'
+import { Outlet, useLoaderData, useLocation, useSubmit, Form } from 'react-router-dom'
+
+import ContentSearch from '@renderer/components/ContentSearch'
+import ContentItem from '@renderer/components/ContentItem'
 
 const Index = () => {
   const content = useLoaderData() as ContentType[]
-  const navigate = useNavigate()
-  const listRef = useRef<HTMLDivElement | null>(null)
-  useEffect(() => {
-    if (listRef.current) {
-      listRef.current.scrollTop = 0
-    }
-    if (content.length > 0) {
-      navigate(`/config/category/contentList/${content[0].category_id}/content/${content[0].id}`)
-    }
-  }, [content, navigate])
 
   return (
     <main className="contentList-page">
-      <div className="list" ref={listRef}>
+      <div className="list">
+        <ContentSearch />
         {content.map((item) => (
-          <NavLink
-            to={`/config/category/contentList/${item.category_id}/content/${item.id}`}
-            className={({ isActive }) => (isActive ? 'active' : '')}
-            key={item.id}
-          >
-            <div className="truncate">{item.title}</div>
-            <div>{dayjs(item.create_time).format('YYYY/MM/DD')}</div>
-          </NavLink>
+          <ContentItem key={item.id} item={item} />
         ))}
       </div>
       <div className="contentList">

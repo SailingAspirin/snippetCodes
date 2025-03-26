@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-02-27 21:49:11
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-01 17:41:36
+ * @LastEditTime: 2025-03-24 16:25:02
  * @Description: file content
  */
 import tseslint from '@electron-toolkit/eslint-config-ts'
@@ -34,6 +34,7 @@ export default tseslint.config(
       ...eslintPluginReactRefresh.configs.vite.rules,
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
       'prettier/prettier': [
         'error',
         {
