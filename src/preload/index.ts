@@ -18,6 +18,9 @@ const api = {
   sql: (sql: string, type: SqlActionType, params = {}) => {
     return ipcRenderer.invoke('sql', sql, type, params)
   },
+  initTable: () => {
+    ipcRenderer.send('initTable')
+  },
 }
 
 // 根据上下文隔离状态（contextBridge），选择合适的方式将 Electron API 和自定义 API 暴露给渲染进程。

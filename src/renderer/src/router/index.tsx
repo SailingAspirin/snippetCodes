@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-05 11:20:25
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-25 18:33:05
+ * @LastEditTime: 2025-03-26 23:29:40
  * @Description: file content
  */
 import { createHashRouter } from 'react-router-dom'
@@ -17,6 +17,7 @@ import Content from '@renderer/pages/Content'
 import ContentLoader from '@renderer/pages/Content/ContentLoader'
 import ContentAction from '@renderer/pages/Content/ContentAction'
 import Welcome from '@renderer/pages/Welcome'
+import CategoryAction from '@renderer/pages/Category/CategoryAction'
 
 const routes = [
   {
@@ -31,6 +32,7 @@ const routes = [
         path: 'category',
         element: <Category />,
         loader: CategoryLoader,
+        action: CategoryAction,
         children: [
           {
             path: 'contentList/:cid?',

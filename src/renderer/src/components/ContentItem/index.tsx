@@ -22,11 +22,11 @@ function ContentItem({ item }: props) {
       key={item.id}
       onContextMenu={showContextMenu([
         {
-          key: 'remove',
+          key: 'delete',
           icon: <Delete theme="outline" size="18" strokeWidth={3} />,
           title: '删除片段',
           onClick: () => {
-            submit({ action: 'remove', id: item.id }, { method: 'post' })
+            submit({ action: 'delete', id: item.id }, { method: 'delete' })
           },
         },
       ])}

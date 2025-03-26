@@ -2,7 +2,6 @@ import { redirect } from 'react-router-dom'
 
 export default async ({ params, request }) => {
   const cid = params.cid || 1
-
   const formData = await request.formData()
   const data = Object.fromEntries(formData)
   switch (formData.get('action')) {
@@ -14,8 +13,8 @@ export default async ({ params, request }) => {
       )
       return redirect(`/config/category/contentList/${cid}/content/${id}`)
     }
-    case 'remove': {
-      const id = await window.api.sql(`delete from contents where id = ${data.id}`, 'del')
+    case 'delete': {
+      const id = await window.api.sql(`delete from contents where id =@id`, 'del', { id: data.id })
       return id
     }
   }

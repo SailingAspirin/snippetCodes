@@ -21,6 +21,7 @@ declare global {
         type: 'findAll' | 'findOne' | 'insert' | 'update' | 'del',
         params?: Record<string, any>
       ) => Promise<T>
+      initTable: () => void
     }
   }
 }

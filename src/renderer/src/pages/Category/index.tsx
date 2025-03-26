@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-21 18:37:27
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-26 14:16:28
+ * @LastEditTime: 2025-03-26 23:33:27
  * @Description: file content
  */
 import React, { useEffect } from 'react'
@@ -12,6 +12,7 @@ import { Add, AllApplication, DatabaseSetting, FolderClose } from '@icon-park/re
 import classNames from 'classnames'
 import QuickNav from '@renderer/components/QuickNav'
 import CategoryItem from '@renderer/components/CategoryItem'
+import FooterMenu from '@renderer/components/FooterMenu'
 
 const Index = () => {
   const categories = useLoaderData() as CategoryType[]
@@ -32,8 +33,7 @@ const Index = () => {
         })}
       </div>
       <div className="nav">
-        <Add theme="outline" size="20" fill="#333" strokeWidth={4} />
-        <DatabaseSetting theme="outline" size="20" fill="#333" strokeWidth={4} />
+        <FooterMenu />
       </div>
       <div className="content">
         <Outlet />

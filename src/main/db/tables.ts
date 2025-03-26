@@ -2,30 +2,33 @@
  * @Author: Salaing
  * @Date: 2025-03-20 19:43:44
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-24 20:24:03
+ * @LastEditTime: 2025-03-27 00:39:36
  * @Description: file content
  */
 import { db } from './connect'
 import { Random } from 'mockjs'
 import { findOne } from './query'
 
-db.exec(`
-        create table if not exists categories (
-            id integer primary key autoincrement not null,
-            name text not null,
-            created_at text not null
-        );
-    `)
-db.exec(`
-        create table if not exists contents (
-            id integer primary key autoincrement not null,
-            title text not null,
-            content text not null,
-            category_id integer,
-            created_at text not null,
-            updated_at text not null
-        );
-    `)
+export function initTable() {
+  db.exec(`
+    create table if not exists categories (
+        id integer primary key autoincrement not null,
+        name text not null,
+        created_at text not null
+    );
+`)
+  db.exec(`
+    create table if not exists contents (
+        id integer primary key autoincrement not null,
+        title text not null,
+        content text not null,
+        category_id integer,
+        created_at text not null,
+        updated_at text not null
+    );
+`)
+  initData()
+}
 
 function initData() {
   const isInit = findOne(`select * from contents`)
@@ -45,4 +48,4 @@ function initData() {
     }
   }
 }
-initData()
+initTable()
