@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-21 18:37:27
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-26 00:13:00
+ * @LastEditTime: 2025-03-26 14:16:28
  * @Description: file content
  */
 import React, { useEffect } from 'react'
@@ -10,6 +10,8 @@ import './category.scss'
 import { NavLink, Outlet, useLoaderData, useNavigate } from 'react-router-dom'
 import { Add, AllApplication, DatabaseSetting, FolderClose } from '@icon-park/react'
 import classNames from 'classnames'
+import QuickNav from '@renderer/components/QuickNav'
+import CategoryItem from '@renderer/components/CategoryItem'
 
 const Index = () => {
   const categories = useLoaderData() as CategoryType[]
@@ -24,36 +26,9 @@ const Index = () => {
   return (
     <main className="category-page">
       <div className="categories">
-        <div className="px-2 mt-2 opacity-90 mb-1">快捷操作</div>
-        <NavLink to={'/config/category/contentList'} end className={'font-bold'}>
-          <div className="flex items-center gap-1">
-            <AllApplication theme="outline" size="12" fill="#333" strokeWidth={3} />
-            <div className="truncate ">所有片段</div>
-          </div>
-        </NavLink>
-        <NavLink
-          to={'/config/category/contentList/0'}
-          className={({ isActive }) => classNames('font-bold', { active: isActive })}
-        >
-          <div className="flex items-center gap-1">
-            <AllApplication theme="outline" size="12" fill="#333" strokeWidth={3} />
-            <div className="truncate ">未分类</div>
-          </div>
-        </NavLink>
+        <QuickNav />
         {categories.map((item) => {
-          return (
-            <NavLink
-              to={`/config/category/contentList/${item.id}`}
-              key={item.id}
-              className={({ isActive }) => (isActive ? 'active' : '')}
-              title={item.name}
-            >
-              <div className="flex items-center gap-2">
-                <FolderClose theme="outline" size="12" fill="#333" strokeWidth={3} />
-                <div className={'truncate'}>{item.name}</div>
-              </div>
-            </NavLink>
-          )
+          return <CategoryItem key={item.id} category={item} />
         })}
       </div>
       <div className="nav">

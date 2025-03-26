@@ -1,3 +1,5 @@
+import { redirect } from 'react-router-dom'
+
 export default async ({ request }) => {
   const data = await request.formData()
   const title = data.get('title')
@@ -10,8 +12,8 @@ export default async ({ request }) => {
     params: { title, content, category_id, id },
   }
   try {
-    const res = await window.api.sql(query.sql, 'update', query.params) // 确保传递两个参数
-    return res
+    await window.api.sql(query.sql, 'update', query.params) // 确保传递两个参数
+    return redirect(`/config/category/contentList/${category_id}/content/${id}`)
   } catch (error) {
     console.error('SQL 执行失败:', error)
     throw error // 抛出错误以便调用方处理

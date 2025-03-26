@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-03 22:16:26
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-24 15:34:47
+ * @LastEditTime: 2025-03-26 13:03:10
  * @Description: file contents
  */
 import { BrowserWindow, shell, screen } from 'electron'
@@ -43,12 +43,12 @@ export function createWindow(): BrowserWindow {
   })
 
   // Attach DevTools to the new window
-  // win.webContents.setDevToolsWebContents(devToolsWindow.webContents)
-  // win.webContents.openDevTools({ mode: 'detach' })
+  win.webContents.setDevToolsWebContents(devToolsWindow.webContents)
+  win.webContents.openDevTools({ mode: 'detach' })
 
   win.on('ready-to-show', () => {
     win.show()
-    // devToolsWindow.show() // 确保开发者工具窗口也显示
+    devToolsWindow.show() // 确保开发者工具窗口也显示
   })
 
   win.webContents.setWindowOpenHandler((details) => {

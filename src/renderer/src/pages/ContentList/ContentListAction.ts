@@ -1,10 +1,10 @@
 import { redirect } from 'react-router-dom'
 
 export default async ({ params, request }) => {
-  console.log('params', params)
   const cid = params.cid || 1
 
   const formData = await request.formData()
+  const data = Object.fromEntries(formData)
   switch (formData.get('action')) {
     case 'add': {
       const id = await window.api.sql(
@@ -13,6 +13,10 @@ export default async ({ params, request }) => {
         'insert'
       )
       return redirect(`/config/category/contentList/${cid}/content/${id}`)
+    }
+    case 'remove': {
+      const id = await window.api.sql(`delete from contents where id = ${data.id}`, 'del')
+      return id
     }
   }
   return {}
