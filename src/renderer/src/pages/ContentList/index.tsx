@@ -5,9 +5,8 @@
  * @LastEditTime: 2025-03-26 14:30:49
  * @Description: file content
  */
-import { useEffect, useRef } from 'react'
 import './contentList.css'
-import { Outlet, useLoaderData, useLocation, useSubmit, Form } from 'react-router-dom'
+import { Outlet, useLoaderData } from 'react-router-dom'
 
 import ContentSearch from '@renderer/components/ContentSearch'
 import ContentItem from '@renderer/components/ContentItem'
