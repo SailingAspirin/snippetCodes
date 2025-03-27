@@ -1,3 +1,10 @@
+/*
+ * @Author: Salaing
+ * @Date: 2025-03-26 14:35:24
+ * @LastEditors: Salaing
+ * @LastEditTime: 2025-03-27 22:40:45
+ * @Description: file content
+ */
 import { Delete } from '@icon-park/react'
 import dayjs from 'dayjs'
 import { NavLink, useSubmit } from 'react-router-dom'
@@ -20,6 +27,11 @@ function ContentItem({ item }: props) {
       to={`/config/category/contentList/${item.category_id}/content/${item.id}`}
       className={({ isActive }) => (isActive ? style.active : style.link)}
       key={item.id}
+      onDragStart={(e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        console.log('onDragStart')
+      }}
       onContextMenu={showContextMenu([
         {
           key: 'delete',
