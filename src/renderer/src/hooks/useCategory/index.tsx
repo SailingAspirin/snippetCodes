@@ -11,6 +11,7 @@ import { useSubmit } from 'react-router-dom'
 import { Delete } from '@icon-park/react'
 import style from './style.module.scss'
 import useContent from '../useContent'
+import { DragEvent } from 'react'
 
 export default function useCategory(category: CategoryType) {
   const submit = useSubmit()
@@ -52,26 +53,25 @@ export default function useCategory(category: CategoryType) {
   */
 
   const dragHandle = {
-    onDragOver: (e) => {
+    onDragOver: (e: DragEvent) => {
       e.preventDefault()
       e!.dataTransfer!.dropEffect = 'move'
-      const el = e.currentTarget
+      const el = e.currentTarget as HTMLDivElement
       el.classList.add(style.draging)
     },
 
-    onDragLeave: (e) => {
+    onDragLeave: (e: DragEvent) => {
       e.preventDefault()
-      const el = e.currentTarget
+      const el = e.currentTarget as HTMLDivElement
       el.classList.remove(style.draging)
     },
-    onDrop: (e) => {
+    onDrop: (e: DragEvent) => {
       e.preventDefault()
-      const el = e.currentTarget
+      const el = e.currentTarget as HTMLDivElement
       el.classList.remove(style.draging)
       const id = e!.dataTransfer!.getData('id')
       console.log(id)
       updateContentCategory(Number(id), category.id)
-      console.log(updateContentCategory(Number(id), category.id))
     },
   }
 
