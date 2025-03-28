@@ -1,5 +1,5 @@
 @mixin commonLink {
-  @apply px-1 py-[6px] truncate cursor-pointer block mx-2 my-1 rounded-md border-b
+  @apply px-2 py-2 truncate cursor-pointer block  rounded-md border-b
   flex items-center justify-between;
 }
 
@@ -9,5 +9,5 @@
 }
 .active {
   @include commonLink();
-  @apply bg-blue-600 text-white mx-1 rounded-md;
+  @apply bg-blue-600 text-white px-1  rounded-md;
 }

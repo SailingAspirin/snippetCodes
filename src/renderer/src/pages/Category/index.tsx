@@ -3,26 +3,17 @@
  * @Date: 2025-03-21 18:37:27
  * @LastEditors: Salaing
  * @LastEditTime: 2025-03-26 23:33:27
- * @Description: file content
+ * @Description: 片段首页
  */
-import React, { useEffect } from 'react'
 import './category.scss'
-import { NavLink, Outlet, useLoaderData, useNavigate } from 'react-router-dom'
-import { Add, AllApplication, DatabaseSetting, FolderClose } from '@icon-park/react'
-import classNames from 'classnames'
+import {  Outlet, useLoaderData, useNavigate } from 'react-router-dom'
 import QuickNav from '@renderer/components/QuickNav'
 import CategoryItem from '@renderer/components/CategoryItem'
 import FooterMenu from '@renderer/components/FooterMenu'
 
 const Index = () => {
   const categories = useLoaderData() as CategoryType[]
-  const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   if (categories.length > 0) {
-  //     navigate(`/config/category/contentList/${categories[0].id}`)
-  //   }
-  // }, [categories, navigate])
 
   return (
     <main className="category-page">
