@@ -10,7 +10,6 @@ import { redirect } from 'react-router-dom'
 export default async ({ request }) => {
   const formData = await request.formData()
   const data = Object.fromEntries(formData)
-  
 
   switch (data.action) {
     case 'add': {
@@ -37,7 +36,7 @@ export default async ({ request }) => {
         id: data.id,
         name: data.name,
       })
-      
+
       // return redirect(`/config/category/contentList/${data.id}`)
     }
   }
