@@ -1,9 +1,12 @@
 type SqlActionType = 'findAll' | 'findOne' | 'insert' | 'update' | 'del'
 
 type CategoryType = {
+  title: string
   id: number
   name: string
   create_time: string
+  category_id: number
+
 }
 
 type ContentType = {

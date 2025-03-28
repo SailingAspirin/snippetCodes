@@ -18,9 +18,11 @@ $height: 30px;
 .input {
   @apply w-full px-2 ;
   height: $height;
-  // line-height: $height;
-
   input {
     @apply w-full h-full rounded-md px-2 border outline-none;
   }
+}
+
+.darging{
+  @apply bg-gray-200;
 }

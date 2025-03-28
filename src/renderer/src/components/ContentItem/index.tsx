@@ -1,10 +1,3 @@
-/*
- * @Author: Salaing
- * @Date: 2025-03-26 14:35:24
- * @LastEditors: Salaing
- * @LastEditTime: 2025-03-27 22:40:45
- * @Description: file content
- */
 import { Delete } from '@icon-park/react'
 import dayjs from 'dayjs'
 import { NavLink, useSubmit } from 'react-router-dom'
@@ -12,12 +5,7 @@ import { useContextMenu } from 'mantine-contextmenu'
 import style from './style.module.scss'
 
 interface props {
-  item: {
-    id: number
-    title: string
-    create_time: string
-    category_id: number
-  }
+  item: ContentType
 }
 function ContentItem({ item }: props) {
   const submit = useSubmit()
@@ -28,9 +16,9 @@ function ContentItem({ item }: props) {
       className={({ isActive }) => (isActive ? style.active : style.link)}
       key={item.id}
       onDragStart={(e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        console.log('onDragStart')
+        e.dataTransfer.setData('id', String(item.id))
+        // 只允许移动
+        e.dataTransfer.effectAllowed = 'move'
       }}
       onContextMenu={showContextMenu([
         {

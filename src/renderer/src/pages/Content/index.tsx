@@ -31,7 +31,6 @@ const Index = () => {
     categories: CategoryType[]
   }
 
-  console.log(content, categories)
 
   const submit = useSubmit()
   const location = useLocation()
