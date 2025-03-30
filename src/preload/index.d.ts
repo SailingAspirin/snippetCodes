@@ -12,7 +12,6 @@ declare global {
   interface Window {
     electron: ElectronAPI
     api: {
-      hideWindow: () => void
       shortCut: (type: 'search', shortCut: string) => Promise<boolean>
       setIgnoreMouseEvents: (ignore: boolean, options?: { forward: boolean }) => void
       openConfigWindow: () => void
@@ -21,7 +20,10 @@ declare global {
         type: 'findAll' | 'findOne' | 'insert' | 'update' | 'del',
         params?: Record<string, any>
       ) => Promise<T>
-      initTable: () => void
+        initTable: () => void
+      openWindow: (name:WindowNameType) => void
+      closeWindow: (name:WindowNameType) => void
+
     }
   }
 }

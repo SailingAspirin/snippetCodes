@@ -2,13 +2,18 @@
  * @Author: Salaing
  * @Date: 2025-02-27 21:49:11
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-04 23:21:13
+ * @LastEditTime: 2025-03-30 18:27:15
  * @Description: file content
  */
-import { app, BrowserWindow, ipcMain, screen } from 'electron'
+import { app, BrowserWindow,  } from 'electron'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import './code'
+import './windows'
+import './ipc'
 import './db'
+import './shortCut'
+
+// import './code'
+// import './db'
 
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
@@ -22,8 +27,6 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window)
   })
 
-  // IPC test
-  ipcMain.on('ping', () => console.log('pong'))
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
@@ -41,5 +44,3 @@ app.on('window-all-closed', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.

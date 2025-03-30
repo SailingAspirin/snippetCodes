@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-02-27 21:49:11
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-26 23:07:31
+ * @LastEditTime: 2025-03-30 20:33:24
  * @Description: file content
  */
 import React, { MutableRefObject, useRef, useEffect } from 'react'
@@ -20,9 +20,8 @@ const Index = () => {
   const { setIgnoreMouseEvents } = useIgnoreMouseEvents()
 
   useEffect(() => {
-    // register('search', 'CommandOrControl+Shift+[')
+    register('search', 'CommandOrControl+Shift+[')
     setIgnoreMouseEvents(mainRef as MutableRefObject<HTMLElement>)
-    window.api.openConfigWindow()
   }, [])
   return (
     <>

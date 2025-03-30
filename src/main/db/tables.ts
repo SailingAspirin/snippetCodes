@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-20 19:43:44
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-27 00:39:36
+ * @LastEditTime: 2025-03-30 23:17:29
  * @Description: file content
  */
 import { db } from './connect'
@@ -27,16 +27,25 @@ export function initTable() {
         updated_at text not null
     );
 `)
+db.exec(`
+  create table if not exists config (
+    id integer primary key autoincrement not null,
+    content text not null,
+       created_at text not null
+  );
+`)
   initData()
 }
 
 function initData() {
   const isInit = findOne(`select * from contents`)
   if (isInit) return
-  for (let i = 0; i < 10; i++) {
-    const name = Random.ctitle(5, 10)
+  db.exec(`
+    INSERT INTO config (content,created_at) VALUES ('', datetime('now', 'localtime'))
+`)
+  for (let i = 0; i <= 10; i++) {
     db.exec(`
-              INSERT INTO categories (name, created_at) VALUES ('${name}', datetime('now', 'localtime'))
+              INSERT INTO categories (name, created_at) VALUES ('', datetime('now', 'localtime'))
           `)
     for (let j = 1; j < 10; j++) {
       const title = Random.ctitle(5, 10)

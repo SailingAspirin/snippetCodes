@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-03 18:21:07
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-07 16:11:35
+ * @LastEditTime: 2025-03-30 23:08:18
  * @Description: file content
  */
 /*
@@ -16,6 +16,7 @@ import { ChangeEvent, useEffect, useState } from 'react'
 import useCode from './useCode'
 import { data as codes } from '@renderer/data'
 import { useStore } from '@renderer/store/useStore'
+import useChineseInput from './useChineseInput'
 
 export default function useSearch() {
   const data = useStore((state) => state.data)
@@ -24,7 +25,7 @@ export default function useSearch() {
   const search = useStore((state) => state.search)
   const setSearch = useStore((state) => state.setSearch)
   const setId = useStore((state) => state.setId)
-
+  
   useEffect(() => {
     if (data && Array.isArray(data) && data.length > 0) {
       setId(data[0].id || 0)
@@ -34,9 +35,11 @@ export default function useSearch() {
     }
   }, [data])
 
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value)
-    const content = e.target.value.toLocaleLowerCase() || '@@'
+  const handleSearch = (e) => {
+    
+    console.log('🔥useSearch.ts:39/():',e)
+    setSearch(e)
+    const content = e.toLocaleLowerCase() || '@@'
     setData(codes.filter((item) => item.content.toLowerCase().includes(content)).splice(0, 8))
   }
 

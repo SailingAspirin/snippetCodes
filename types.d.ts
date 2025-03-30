@@ -17,3 +17,5 @@ type ContentType = {
   create_time: string
   update_time: string
 }
+
+type WindowNameType = 'search' | 'config'

@@ -6,8 +6,8 @@
  * @Description: file content
  */
 import { createHashRouter } from 'react-router-dom'
-import Home from '@renderer/pages/Home/index'
-import Config from '@renderer/pages/Config/index'
+import Home from '@renderer/layouts/Home/index'
+import Config from '@renderer/layouts/Config/index'
 import Category from '@renderer/pages/Category/index'
 import CategoryLoader from '@renderer/pages/Category/CategoryLoader'
 import ContentList from '@renderer/pages/ContentList'
@@ -18,6 +18,7 @@ import ContentLoader from '@renderer/pages/Content/ContentLoader'
 import ContentAction from '@renderer/pages/Content/ContentAction'
 import Welcome from '@renderer/pages/Welcome'
 import CategoryAction from '@renderer/pages/Category/CategoryAction'
+import Setting from '@renderer/pages/Setting'
 
 const routes = [
   {
@@ -28,6 +29,10 @@ const routes = [
     path: 'config', // 确保路径以斜杠开头
     element: <Config />,
     children: [
+      {
+        index: true,
+        element: <Setting />,
+      },
       {
         path: 'category',
         element: <Category />,
