@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
-const UseChineseInput = (value: string, onChange: (value: string) => void) => {
+const UseChineseInput = (value: string, handleSearch: (value: string) => void) => {
   const [inputValue, setInputValue] = useState(value)
   const [isComposing, setIsComposing] = useState(false)
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (isComposing) {
-      const value = event.currentTarget.value
-      setInputValue(value)
-      onChange(value)
+    const value = event.currentTarget.value
+    setInputValue(value)
+    // 如果在中文输入法组合输入期间，不更新值
+    if (!isComposing) {
+      handleSearch(value)
     }
   }
 
@@ -18,8 +19,7 @@ const UseChineseInput = (value: string, onChange: (value: string) => void) => {
   const handleCompositionEnd = (event: React.CompositionEvent<HTMLInputElement>) => {
     setIsComposing(false)
     const value = event.currentTarget.value
-    setInputValue(value)
-    onChange(value)
+    handleSearch(value)
   }
   return {
     inputValue,
