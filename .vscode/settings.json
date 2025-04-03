@@ -8,5 +8,7 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "commentTranslate.targetLanguage": "zh-CN"
+  "css.customData": ["./.vscode/tailwind.json",],
+  "commentTranslate.targetLanguage": "zh-CN",
+ 
 }

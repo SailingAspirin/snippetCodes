@@ -3,7 +3,7 @@
  * @Author: Salaing
  * @Date: 2025-02-28 00:12:30
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-31 23:03:00
+ * @LastEditTime: 2025-04-02 14:48:45
  * @Description: 注意设置了拖动之后的区域是不能响应鼠标事件的
  */
 import { SettingOne } from '@icon-park/react'
@@ -33,7 +33,7 @@ function Search() {
         />
         <Input
           className="w-full outline-none text-xl bg-slate-200 text-slate-600"
-          autoFocus
+          // autoFocus
           value={inputValue}
           onInput={handleInput}
           onCompositionStart={handleCompositionStart}

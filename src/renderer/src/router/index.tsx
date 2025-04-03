@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-05 11:20:25
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-26 23:29:40
+ * @LastEditTime: 2025-04-01 15:07:06
  * @Description: file content
  */
 import { createHashRouter } from 'react-router-dom'
@@ -19,6 +19,7 @@ import ContentAction from '@renderer/pages/Content/ContentAction'
 import Welcome from '@renderer/pages/Welcome'
 import CategoryAction from '@renderer/pages/Category/CategoryAction'
 import Setting from '@renderer/pages/Setting'
+import settingAction from '@renderer/pages/Setting/SettingAction'
 
 const routes = [
   {
@@ -32,6 +33,7 @@ const routes = [
       {
         index: true,
         element: <Setting />,
+        action:settingAction,
       },
       {
         path: 'category',

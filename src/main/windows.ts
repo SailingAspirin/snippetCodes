@@ -11,6 +11,7 @@ export const config = {
   config: {
     id: 0,
     options: {
+      openDevTools: true,
       width: 1300,
       height: 600,
       frame: true,

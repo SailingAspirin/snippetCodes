@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-20 19:43:44
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-30 23:17:29
+ * @LastEditTime: 2025-04-01 14:38:58
  * @Description: file content
  */
 import { db } from './connect'
@@ -44,8 +44,9 @@ function initData() {
     INSERT INTO config (content,created_at) VALUES ('', datetime('now', 'localtime'))
 `)
   for (let i = 0; i <= 10; i++) {
+    const title = Random.ctitle(5, 10)
     db.exec(`
-              INSERT INTO categories (name, created_at) VALUES ('', datetime('now', 'localtime'))
+              INSERT INTO categories (name, created_at) VALUES ('${title}', datetime('now', 'localtime'))
           `)
     for (let j = 1; j < 10; j++) {
       const title = Random.ctitle(5, 10)

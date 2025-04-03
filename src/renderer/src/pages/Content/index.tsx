@@ -73,7 +73,9 @@ const Index = () => {
     >
       <main className="content-page">
         <Form.Item name={'id'} hidden>
-          <Input autoFocus />
+          <Input
+            // autoFocus 
+            />
         </Form.Item>
         <Form.Item name="title">
           <Input onBlur={(e) => handleInputChange(e, 'title')} />

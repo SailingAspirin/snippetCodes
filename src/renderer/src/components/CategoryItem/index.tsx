@@ -27,7 +27,7 @@ function CategoryItem({ category }: Props) {
           <input
             defaultValue={category.name}
             name="name"
-            autoFocus
+            // autoFocus
             onKeyDownCapture={(e) => {
               if (e.key === 'Enter') {
                 // 检测是否按下回车键
