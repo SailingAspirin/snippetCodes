@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-02-27 21:49:11
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-21 12:04:41
+ * @LastEditTime: 2025-04-08 23:35:42
  * @Description: file content
  */
 import { ElectronAPI } from '@electron-toolkit/preload'
@@ -12,7 +12,7 @@ declare global {
   interface Window {
     electron: ElectronAPI
     api: {
-      shortCut: (type: 'search', shortCut: string) => Promise<boolean>
+      shortCut: (shortCut: string) => Promise<boolean>
       setIgnoreMouseEvents: (ignore: boolean, options?: { forward: boolean }) => void
       openConfigWindow: () => void
       sql: <T>(

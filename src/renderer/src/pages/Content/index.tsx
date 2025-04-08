@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-23 10:32:31
  * @LastEditors: Salaing
- * @LastEditTime: 2025-03-26 01:15:24
+ * @LastEditTime: 2025-04-08 23:49:10
  * @Description: file content
  */
 import { Button, Input, Form, message, Select } from 'antd'
@@ -74,7 +74,7 @@ const Index = () => {
       <main className="content-page">
         <Form.Item name={'id'} hidden>
           <Input
-            // autoFocus 
+            
             />
         </Form.Item>
         <Form.Item name="title">

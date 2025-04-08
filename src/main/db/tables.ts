@@ -2,7 +2,7 @@
  * @Author: Salaing
  * @Date: 2025-03-20 19:43:44
  * @LastEditors: Salaing
- * @LastEditTime: 2025-04-01 14:38:58
+ * @LastEditTime: 2025-04-08 23:02:52
  * @Description: file content
  */
 import { db } from './connect'
@@ -30,9 +30,8 @@ export function initTable() {
 db.exec(`
   create table if not exists config (
     id integer primary key autoincrement not null,
-    content text not null,
-       created_at text not null
-  );
+    content text not null
+  ); 
 `)
   initData()
 }
@@ -41,7 +40,7 @@ function initData() {
   const isInit = findOne(`select * from contents`)
   if (isInit) return
   db.exec(`
-    INSERT INTO config (content,created_at) VALUES ('', datetime('now', 'localtime'))
+     INSERT INTO config (content) VALUES('{"shortCut":"Alt+Space","databaseDirectory":"df"}')
 `)
   for (let i = 0; i <= 10; i++) {
     const title = Random.ctitle(5, 10)

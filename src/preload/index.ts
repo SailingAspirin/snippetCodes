@@ -1,10 +1,17 @@
+/*
+ * @Author: Salaing
+ * @Date: 2025-02-27 21:49:11
+ * @LastEditors: Salaing
+ * @LastEditTime: 2025-04-08 23:36:16
+ * @Description: file content
+ */
 import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 
 // Custom APIs for renderer 转发到客户端
 const api = {
-  shortCut: (type: string, shortCut: string) => {
-    return ipcRenderer.invoke('shortCut', type, shortCut)
+  shortCut: ( shortCut: string) => {
+    return ipcRenderer.invoke('shortCut',  shortCut)
   },
   setIgnoreMouseEvents: (ignore: boolean, options?: { forward: boolean }) => {
     ipcRenderer.send('setIgnoreMouseEvents', ignore, options)

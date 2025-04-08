@@ -27,7 +27,6 @@ function Search() {
           className="cursor-pointer"
           strokeWidth={3}
           onClick={() => {
-            // window.api?.openConfigWindow()
             window.api.openWindow('config')
           }}
         />

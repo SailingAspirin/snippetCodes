@@ -19,7 +19,8 @@ import ContentAction from '@renderer/pages/Content/ContentAction'
 import Welcome from '@renderer/pages/Welcome'
 import CategoryAction from '@renderer/pages/Category/CategoryAction'
 import Setting from '@renderer/pages/Setting'
-import settingAction from '@renderer/pages/Setting/SettingAction'
+import SettingAction from '@renderer/pages/Setting/SettingAction'
+import SettingLoader from '@renderer/pages/Setting/SettingLoader'
 
 const routes = [
   {
@@ -33,7 +34,8 @@ const routes = [
       {
         index: true,
         element: <Setting />,
-        action:settingAction,
+        loader: SettingLoader,
+        action: SettingAction,
       },
       {
         path: 'category',
